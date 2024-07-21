@@ -22,6 +22,7 @@ const Navbar = () => {
         }
         dispatch(userUpdate(newUser))
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[data])
 
     const handleLogout = async()=>{
