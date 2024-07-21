@@ -8,6 +8,8 @@ const SignUp = () => {
   const [data,setData] = useState()
   const [userInfo,setUserInfo] = useState()
   const signup = useSignupMutation()[0]
+  const dispatch = useDispatch()
+  const navigate  = useNavigate()
   const handleChange=(e)=>{
     setData(prev=>({
       ...prev,
@@ -23,8 +25,6 @@ const SignUp = () => {
   }
 
   useEffect(()=>{
-  const dispatch = useDispatch()
-  const navigate  = useNavigate()
     if(userInfo){
       dispatch(userUpdate(userInfo))
       navigate('/')
