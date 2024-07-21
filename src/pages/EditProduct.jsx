@@ -12,7 +12,6 @@ const EditProduct = () => {
     const editProduct = useEditProductMutation()[0]
     useEffect(()=>{
         setFormData(product)
-        console.log('f',formData)
     },[product])
     const handleChange= (e)=>{
         setFormData((prev)=>({

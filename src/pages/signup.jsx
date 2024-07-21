@@ -16,15 +16,7 @@ const SignUp = () => {
       [e.target.name]:e.target.value
     }))
   }
-  const handleUpdateUser =async()=>{
-    if(userInfo){
-      dispatch(userUpdate(userInfo))
-      navigate('/')
-    }
-    else{
-    }
 
-  }
   const handleSubmit=async(e)=>{
     e.preventDefault()
     const res = await signup(data)
@@ -33,6 +25,14 @@ const SignUp = () => {
   }
 
   useEffect(()=>{
+    const handleUpdateUser =async()=>{
+    if(userInfo){
+      dispatch(userUpdate(userInfo))
+      navigate('/')
+    }
+    else{
+    }
+  }
     handleUpdateUser()
   },[userInfo])
   return (

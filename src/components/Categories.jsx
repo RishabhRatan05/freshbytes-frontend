@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useGetCategoriesQuery } from '../redux/api/category'
 
 const Categories = () => {
-  const {data, isLoading,isSuccess}= useGetCategoriesQuery()
+  const {data, isLoading}= useGetCategoriesQuery()
 
   return (
     <div className='sm:block flex gap-2 flex-wrap'>

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Cookies } from 'react-cookie';
-import { useGetUserQuery, useLogoutQuery } from '../redux/api/auth';
+import { useGetUserQuery } from '../redux/api/auth';
 import { userUpdate } from '../redux/slices/user';
 
 const Navbar = () => {
     const [isClicked,setIsClicked] = useState(false)
     const cookies = new Cookies()
     const token = cookies.get('token')
-    const navigate = useNavigate()
-    const {data, isLoading,} = useGetUserQuery()
+    const {data} = useGetUserQuery()
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -81,7 +80,7 @@ const Navbar = () => {
             </button>
             {isClicked && 
                 <div className='absolute flex flex-col mt-6 pl-2 bg-white text-black'>
-                    {userInfo?.role=='admin' && 
+                    {userInfo?.role==='admin' && 
                     <Link to={'/product'}>Dashboard</Link>
                     }
                     {token ?

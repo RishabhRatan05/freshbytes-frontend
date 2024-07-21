@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
-import { useCreateProductMutation, useGetAdminProductsQuery, useGetProductsQuery } from '../redux/api/product'
+import { useCreateProductMutation, useGetAdminProductsQuery } from '../redux/api/product'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import ProductAdminCard from '../components/ProductAdminCard'
@@ -22,11 +22,11 @@ const Product = () => {
         }))
     }
 
-    const {data, isError, isSuccess, isLoading} = useGetAdminProductsQuery()
+    const {data, isSuccess, isLoading} = useGetAdminProductsQuery()
     const createProduct = useCreateProductMutation()[0]
     const handleCreateProduct= async(e)=>{
         e.preventDefault()
-        const res = await createProduct(formData)
+        await createProduct(formData)
         navigate('/')
     }
   return (

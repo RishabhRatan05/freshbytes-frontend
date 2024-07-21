@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 const Home = () => {
 
-  const {data, isError, isSuccess, isLoading} = useGetProductsQuery()
+  const {data,isSuccess, isLoading} = useGetProductsQuery()
     const cartData = useSelector(state=>state.cartState)
     const cart = cartData.cart
 

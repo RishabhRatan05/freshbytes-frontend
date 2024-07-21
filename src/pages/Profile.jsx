@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from '../components/Navbar'
 import { useSelector } from 'react-redux'
 
 const Profile = () => {
-  const [user,setUser] = useState()
   const userInfo = useSelector(state=>state.user)
   return (
     <div className='bg-black text-white'>
