@@ -10,9 +10,9 @@ const Navbar = () => {
     const cookies = new Cookies()
     const token = cookies.get('token')
     const {data} = useGetUserQuery()
-    const dispatch = useDispatch()
 
     useEffect(()=>{
+    const dispatch = useDispatch()
         if(data && data.length!==0){
         const newUser = {
             name : data[0]?.name,

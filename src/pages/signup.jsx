@@ -6,8 +6,6 @@ import { userUpdate } from '../redux/slices/user'
 
 const SignUp = () => {
   const [data,setData] = useState()
-  const dispatch = useDispatch()
-  const navigate  = useNavigate()
   const [userInfo,setUserInfo] = useState()
   const signup = useSignupMutation()[0]
   const handleChange=(e)=>{
@@ -25,6 +23,8 @@ const SignUp = () => {
   }
 
   useEffect(()=>{
+  const dispatch = useDispatch()
+  const navigate  = useNavigate()
     if(userInfo){
       dispatch(userUpdate(userInfo))
       navigate('/')
