@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000/",
+    baseUrl: process.env.SERVER_URL,
     credentials: "include",
   }),
 
@@ -23,16 +23,16 @@ const authApi = createApi({
         body: profile,
       }),
     }),
-    logout:builder.query({
-      query:()=>({
-        url:'/logout'
-      })
+    logout: builder.query({
+      query: () => ({
+        url: "/logout",
+      }),
     }),
-    getUser:builder.query({
-      query:()=>({
-        url:'/api/user'
-      })
-    })
+    getUser: builder.query({
+      query: () => ({
+        url: "/api/user",
+      }),
+    }),
   }),
 })
 

@@ -1,47 +1,47 @@
 import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 const productApi = createApi({
-    reducerPath:'productApi',
-    baseQuery: fetchBaseQuery({
-        baseUrl:'http://localhost:8000/'
+  reducerPath: "productApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.SERVER_URL,
+  }),
+
+  endpoints: (builder) => ({
+    getProducts: builder.query({
+      query: () => ({
+        url: "api/product",
+      }),
     }),
 
-    endpoints:(builder)=>({
-        getProducts:builder.query({
-            query:()=>({
-                url:'api/product'
-            })
-        }),
+    getAdminProducts: builder.query({
+      query: () => ({
+        url: "/api/product/all",
+      }),
+    }),
 
-        getAdminProducts: builder.query({
-            query:(()=>({
-                url:'/api/product/all'
-            }))
-        }),
+    createProduct: builder.mutation({
+      query: (product) => ({
+        url: "api/product",
+        method: "POST",
+        body: product,
+      }),
+    }),
 
-        createProduct:builder.mutation({
-            query:(product)=>({
-                url:'api/product',
-                method:"POST",
-                body:product
-            })
-        }),
+    editProduct: builder.mutation({
+      query: ({ id, formData }) => ({
+        url: `api/product/${id}`,
+        method: "PUT",
+        body: formData,
+      }),
+    }),
 
-        editProduct: builder.mutation({
-            query:({id,formData})=>({
-                url:`api/product/${id}`,
-                method:"PUT",
-                body:formData
-            })
-        }),
-
-        deleteProduct: builder.mutation({
-            query:(id)=>({
-                url:`api/product/${id}`,
-                method:"DELETE"
-            })
-        })
-    })
+    deleteProduct: builder.mutation({
+      query: (id) => ({
+        url: `api/product/${id}`,
+        method: "DELETE",
+      }),
+    }),
+  }),
 })
 
 
