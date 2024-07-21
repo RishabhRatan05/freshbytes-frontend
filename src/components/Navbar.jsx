@@ -13,7 +13,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        if(data && data!=[]){
+        if(data && data.length!==0){
         const newUser = {
             name : data[0]?.name,
             email : data[0]?.email,
@@ -46,7 +46,7 @@ const Navbar = () => {
         <Link to={'/'} className='text-pink-500 text-2xl'>FreshBytes</Link>
         <div className='sm:flex hidden justify-between items-center gap-3'>
             <Link to={'/cart'}>Cart {cart.length>0 &&  <span className='bg-yellow-400 text-black px-1 rounded'>{cart.length}</span>}</Link>
-            {userInfo?.role=='admin' && 
+            {userInfo?.role==='admin' && 
                 <Link to={'/product'}>Dashboard</Link>
             }
             <Link to={'/profile'}>Profile</Link>

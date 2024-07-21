@@ -25,15 +25,12 @@ const SignUp = () => {
   }
 
   useEffect(()=>{
-    const handleUpdateUser =async()=>{
     if(userInfo){
       dispatch(userUpdate(userInfo))
       navigate('/')
     }
     else{
     }
-  }
-    handleUpdateUser()
   },[userInfo])
   return (
     <form onSubmit={handleSubmit} className='flex  flex-col justify-center items-center items-center h-screen bg-black text-white text-2xl gap-2'>

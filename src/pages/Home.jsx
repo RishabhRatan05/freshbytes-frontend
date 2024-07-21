@@ -26,7 +26,10 @@ const Home = () => {
                     <>
                     <div> {d?.name} </div>
                     {d?.products?.map(product=>{
-                        const qty= cart.map(item=> {if(item.id === product._id) return item.qty})
+                        const qty= cart.map(item=> {
+                          if(item.id === product._id) return item.qty 
+                          else return []
+                        })
                         return <ProductCard _id={product._id} key={product._id} name={product.name} price={product.price} quantity={qty}/>
                     })}
                     </>

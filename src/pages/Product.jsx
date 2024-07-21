@@ -47,7 +47,10 @@ const Product = () => {
                     <>
                     <div> {d?.name} </div>
                     {d?.products?.map(product=>{
-                        const qty= cart.map(item=> {if(item.id === product._id) return item.qty})
+                        const qty= cart.map(item=> {
+                            if(item.id === product._id) return item.qty
+                            return []
+                        })
                         return <ProductAdminCard _id={product._id} category={product.category} key={product._id} name={product.name} price={product.price} quantity={qty}/>
                     })}
                     </>
