@@ -12,8 +12,8 @@ const ProductCard = ( {_id:id, name, price, quantity} ) => {
     dispatch(addToCart({id, name, price, qty:1}))
   }
   const handleRemove=()=>{
-  // const Currentqty= cart.filter(item=> {if(item.id === id) return item})
-  const Currentqty= cart.filter(item=> {item.id === id ? item:[]})
+  const Currentqty= cart.filter(item=> {if(item.id === id) return item})
+  // const Currentqty= cart.filter(item=> {item.id === id ? item:[]})
 
   const newQty = Currentqty[0].qty
     dispatch(removeFromCart({id, price,newQty}))
