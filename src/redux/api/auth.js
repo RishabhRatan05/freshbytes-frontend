@@ -18,19 +18,19 @@ const authApi = createApi({
     }),
     signup: builder.mutation({
       query: (profile) => ({
-        url: "/signup",
+        url: "signup",
         method: "POST",
         body: profile,
       }),
     }),
     logout: builder.query({
       query: () => ({
-        url: "/logout",
+        url: "logout",
       }),
     }),
     getUser: builder.query({
       query: () => ({
-        url: "/api/user",
+        url: "api/user",
       }),
     }),
   }),
