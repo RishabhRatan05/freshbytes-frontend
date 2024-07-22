@@ -17,7 +17,6 @@ const Login = () => {
   }
   const handleSubmit=async(e)=>{
     e.preventDefault()
-    console.log('s-url',process.env.SERVER_URL)
     const res = await login(data)
     if(res.data){
     const userInfo = await res?.data[0]
