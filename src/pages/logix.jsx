@@ -23,7 +23,7 @@ const Login = () => {
     const res = await login(data)
     if(res.data){
     const userInfo = await res?.data[0]
-    const token = cookies.get('token')
+    const token = await cookies.get('token')
     localStorage.setItem('token',token)
       dispatch(userUpdate(userInfo))
       navigate('/')

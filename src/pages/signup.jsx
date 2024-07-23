@@ -25,7 +25,7 @@ const SignUp = () => {
     const res = await signup(data)
     const info = await res.data
     setUserInfo(info)
-    const token = cookies.get('token')
+    const token = await cookies.get('token')
     localStorage.setItem('token',token)
   }
 
