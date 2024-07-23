@@ -14,7 +14,7 @@ const authApi = createApi({
         url: "login",
         method: "POST",
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": process.env.REACT_APP_SERVER_URL,
           "Content-Type": "application/json",
         },
         body: profile,
@@ -25,7 +25,7 @@ const authApi = createApi({
         url: "signup",
         method: "POST",
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": process.env.REACT_APP_SERVER_URL,
           "Content-Type": "application/json",
         },
         body: profile,

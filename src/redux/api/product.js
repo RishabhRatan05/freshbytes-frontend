@@ -24,7 +24,7 @@ const productApi = createApi({
         url: "api/product",
         method: "POST",
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": process.env.REACT_APP_SERVER_URL,
           "Content-Type": "application/json",
         },
         body: product,
@@ -36,7 +36,7 @@ const productApi = createApi({
         url: `api/product/${id}`,
         method: "PUT",
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": process.env.REACT_APP_SERVER_URL,
           "Content-Type": "application/json",
         },
         body: formData,
@@ -47,7 +47,7 @@ const productApi = createApi({
       query: (id) => ({
         url: `api/product/${id}`,
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": process.env.REACT_APP_SERVER_URL,
           "Content-Type": "application/json",
         },
         method: "DELETE",
