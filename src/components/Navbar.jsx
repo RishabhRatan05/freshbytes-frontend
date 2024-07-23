@@ -9,7 +9,6 @@ const Navbar = () => {
     const [isClicked,setIsClicked] = useState(false)
     const cookies = new Cookies()
     const token = cookies.get('token')
-    localStorage.setItem('token',token)
     const {data} = useGetUserQuery()
     const dispatch = useDispatch()
     const currToken = localStorage.getItem('token')
@@ -25,6 +24,12 @@ const Navbar = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[data])
+
+    useEffect(()=>{
+    if(token)
+        localStorage.setItem('token',token)
+
+    },[token])
 
     const handleLogout = async()=>{
         cookies.remove('token')
