@@ -8,10 +8,15 @@ import { userUpdate } from '../redux/slices/user';
 const Navbar = () => {
     const [isClicked,setIsClicked] = useState(false)
     const cookies = new Cookies()
-    const token = localStorage.getItem('token')
+    const token = cookies.get('token')
     const {data} = useGetUserQuery()
     const dispatch = useDispatch()
 
+    useEffect(()=>{
+        if(token){
+            localStorage.setItem('token',token)
+        }
+    },[])
     useEffect(()=>{
         if(data && data.length!==0){
         const newUser = {

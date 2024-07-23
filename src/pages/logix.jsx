@@ -3,14 +3,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useLoginMutation } from '../redux/api/auth'
 import { useDispatch } from 'react-redux'
 import { userUpdate } from '../redux/slices/user'
-import { Cookies } from 'react-cookie'
 
 const Login = () => {
   const [data,setData] = useState()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const cookies = new Cookies()
-
+  
   const login = useLoginMutation()[0]
   const handleChange=(e)=>{
     setData(prev=>({
@@ -23,8 +21,6 @@ const Login = () => {
     const res = await login(data)
     if(res.data){
     const userInfo = await res?.data[0]
-    const token = await cookies.get('token')
-    localStorage.setItem('token',token)
       dispatch(userUpdate(userInfo))
       navigate('/')
     }
