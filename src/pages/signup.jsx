@@ -3,11 +3,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useSignupMutation } from '../redux/api/auth'
 import { useDispatch } from 'react-redux'
 import { userUpdate } from '../redux/slices/user'
+import { Cookies } from 'react-cookie'
 
 const SignUp = () => {
   const [data,setData] = useState()
   const [userInfo,setUserInfo] = useState()
   const signup = useSignupMutation()[0]
+  const cookies = new Cookies()
+
   const dispatch = useDispatch()
   const navigate  = useNavigate()
   const handleChange=(e)=>{
@@ -22,6 +25,8 @@ const SignUp = () => {
     const res = await signup(data)
     const info = await res.data
     setUserInfo(info)
+    const token = cookies.get('token')
+    localStorage.setItem('token',token)
   }
 
   useEffect(()=>{
