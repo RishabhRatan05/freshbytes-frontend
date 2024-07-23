@@ -9,9 +9,10 @@ const Navbar = () => {
     const [isClicked,setIsClicked] = useState(false)
     const cookies = new Cookies()
     const token = cookies.get('token')
+    localStorage.setItem('token',token)
     const {data} = useGetUserQuery()
     const dispatch = useDispatch()
-
+    const currToken = localStorage.getItem('token')
     useEffect(()=>{
         if(data && data.length!==0){
         const newUser = {
@@ -27,6 +28,7 @@ const Navbar = () => {
 
     const handleLogout = async()=>{
         cookies.remove('token')
+        localStorage.removeItem('token')
         const newUser = {
             name : '',
             email : '',
@@ -58,7 +60,7 @@ const Navbar = () => {
             </button>
             {isClicked && 
                 <div className='absolute flex flex-col mt-2 p-2  bg-white text-black'>
-                    {token ?
+                    {currToken ?
                     <button onClick={handleLogout}>Logout</button>
                     :
                     <>
@@ -84,7 +86,7 @@ const Navbar = () => {
                     {userInfo?.role==='admin' && 
                     <Link to={'/product'}>Dashboard</Link>
                     }
-                    {token ?
+                    {currToken ?
                     <>
                     <Link to={'/profile'}>Profile</Link>
                     <button onClick={handleLogout}>Logout</button>
