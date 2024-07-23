@@ -27,6 +27,7 @@ const Navbar = () => {
 
     const handleLogout = async()=>{
         cookies.remove('token')
+        localStorage.removeItem('token')
         const newUser = {
             name : '',
             email : '',
