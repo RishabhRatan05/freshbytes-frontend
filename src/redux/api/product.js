@@ -23,6 +23,10 @@ const productApi = createApi({
       query: (product) => ({
         url: "api/product",
         method: "POST",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
         body: product,
       }),
     }),
@@ -31,6 +35,10 @@ const productApi = createApi({
       query: ({ id, formData }) => ({
         url: `api/product/${id}`,
         method: "PUT",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
         body: formData,
       }),
     }),
@@ -38,6 +46,10 @@ const productApi = createApi({
     deleteProduct: builder.mutation({
       query: (id) => ({
         url: `api/product/${id}`,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
         method: "DELETE",
       }),
     }),

@@ -13,6 +13,10 @@ const authApi = createApi({
       query: (profile) => ({
         url: "login",
         method: "POST",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
         body: profile,
       }),
     }),
@@ -20,6 +24,10 @@ const authApi = createApi({
       query: (profile) => ({
         url: "signup",
         method: "POST",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
         body: profile,
       }),
     }),
