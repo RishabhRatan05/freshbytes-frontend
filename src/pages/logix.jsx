@@ -30,7 +30,7 @@ const Login = () => {
 
   }
   return (
-    <form onSubmit={handleSubmit} className='flex  flex-col justify-center items-center items-center h-screen bg-black text-white text-2xl gap-2'>
+    <form onSubmit={handleSubmit} className='flex  flex-col justify-center items-center h-screen bg-gradient-to-tr from-pink to-red-600 text-white text-2xl gap-2'>
         <label>Email</label> 
         <input name='email' onChange={handleChange} placeholder='enter your email' className='text-black'></input>        
         <label>Password</label> 

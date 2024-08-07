@@ -31,24 +31,24 @@ const ProductCard = ( {_id:id, name, price, quantity} ) => {
   }
 
   return (
-    <div className='sm:grid sm:grid-cols-5 gap-2 items-center justify-between'>
-        <img className='col-span-1' src={url? url : 'logo192.png'} alt='dish' width={80} height={80}></img>
-        <div className='col-span-2'>
-            <div>{name}</div>
-            <div>{price}</div>
+    <div className='sm:grid sm:grid-cols-5  items-center justify-between bg-box sm:h-20 text-black border-pink border'>
+        <img className='sm:col-span-1' src={url? url : 'logo192.png'} alt='dish' width={80} height={80}></img>
+        <div className='sm:col-span-2 pl-5'>
+            <div className='text-orange-400'>{name}</div>
+            <div className='text-cyan-600'>₹<span className='text-cyan-500'>{price}</span></div>
         </div>
-        <div className='flex gap-2 col-span-2'>
+        <div className='flex gap-2 sm:col-span-2 text-white justify-between items-center'>
 
-        <button onClick={handleAdd}>Add</button>
+        <button onClick={handleAdd} className='bg-pink'>Add</button>
         {quantity>0 &&
-        <button onClick={handleDec}>-</button>
+        <button onClick={handleDec} className='bg-pink h-fit'>-</button>
         }
-            <div>{quantity}</div>
+            <div className='text-pink pr-5'>{quantity}</div>
         {quantity>0 && 
-        <button onClick={handleInc}>+</button>
+        <button onClick={handleInc} className='bg-pink'>+</button>
         }
         {quantity>0 && 
-        <button onClick={handleRemove}>Remove</button>
+        <button onClick={handleRemove} className='bg-pink'>Remove</button>
         }
         </div>
 

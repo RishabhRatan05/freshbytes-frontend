@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { Cookies } from 'react-cookie';
 import { useGetUserQuery } from '../redux/api/auth';
 import { userUpdate } from '../redux/slices/user';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 const Navbar = () => {
     const [isClicked,setIsClicked] = useState(false)
     const cookies = new Cookies()
@@ -47,10 +48,10 @@ const Navbar = () => {
   const cartState = useSelector(state=>state.cartState)
   const cart = cartState.cart
   return (
-    <div className='flex justify-between md:mx-10 mx-5 pt-5 md:pt-20'>
+    <div className='flex justify-between px-2 md:px-5 pt-5 bg-nav text-white'>
         
         {/* //Desktop */}
-        <Link to={'/'} className='text-pink-500 text-2xl'>FreshBytes</Link>
+        <Link to={'/'} className='text-pink-500 text-2xl sm:text-3xl md:text-4xl'>FreshBytes</Link>
         <div className='sm:flex hidden justify-between items-center gap-3'>
             <Link to={'/cart'}>Cart {cart.length>0 &&  <span className='bg-yellow-400 text-black px-1 rounded'>{cart.length}</span>}</Link>
             {userInfo?.role==='admin' && 
@@ -63,7 +64,7 @@ const Navbar = () => {
                 {isClicked?<div>Menu</div>:<div>Menu</div>}
             </button>
             {isClicked && 
-                <div className='absolute flex flex-col mt-2 p-2  bg-white text-black'>
+                <div className='absolute flex flex-col mt-2  mr-2  bg-white text-black'>
                     {token ?
                     <button onClick={handleLogout}>Logout</button>
                     :
@@ -83,7 +84,7 @@ const Navbar = () => {
 
             <Link to={'/cart'}>Cart {cart.length>0 &&  <span className='bg-yellow-400 text-black px-1 rounded'>{cart.length}</span>}</Link>
             <button onClick={()=>setIsClicked(!isClicked)}>
-                {isClicked?<div>Menu</div>:<div>UnMenu</div>}
+                {isClicked?<FontAwesomeIcon icon={faXmark}/>:<FontAwesomeIcon icon={faBars}/>}
             </button>
             {isClicked && 
                 <div className='absolute flex flex-col mt-6 pl-2 bg-white text-black'>

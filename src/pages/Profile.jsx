@@ -5,13 +5,13 @@ import { useSelector } from 'react-redux'
 const Profile = () => {
   const userInfo = useSelector(state=>state.user)
   return (
-    <div className='bg-black text-white'>
+    <div className=' text-pink '>
         <Navbar/>
           {userInfo?.email?
-        <main>
-          <div>Name: {userInfo.name}</div>
-          <div>Email: {userInfo.email}</div>
-          <div>Your role is: {userInfo.role}</div>
+        <main className='mx-5'>
+          <div>Name:<span className='text-orange-400 text-2xl'>{userInfo.name}</span></div>
+          <div>Email: <span className='text-orange-400 text-2xl'>{userInfo.email}</span></div>
+          <div>Your role is: <span className='text-orange-400 text-2xl'>{userInfo.role}</span></div>
         </main>
         :
         <>Login First</>

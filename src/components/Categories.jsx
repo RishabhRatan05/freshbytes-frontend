@@ -11,7 +11,7 @@ const Categories = () => {
       : <div className='flex sm:flex-col gap-2 flex-wrap'>
         {data?.map(cat=>{
           
-          return <Link key={cat.name} to={`/category/${cat.name}`}>{cat.name}</Link>
+          return <Link key={cat.name} to={`/category/${cat.name}`} className='text-white text-2xl bg-teal-400 w-fit px-2'>{cat.name}</Link>
         })}
       </div>
       }

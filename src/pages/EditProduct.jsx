@@ -27,15 +27,15 @@ const EditProduct = () => {
         navigate('/')
     }
   return (
-    <div className='bg-black text-white h-screen'>
+    <div className='bg-black text-white '>
         <Navbar/>
-        <div className=' sm:flex '>
+        <div className=' sm:grid grid-cols-4 '>
 
-        <aside className='sm:p-5 sm:mr-5 bg-slate-600 sm:flex sm:flex-col gap-2 '>
+        <aside className='sm:p-5 sm:mr-5 bg-slate-600 sm:flex sm:flex-col gap-2 col-span-1'>
             <div onClick={()=>navigate('/product')} className='cursor-pointer'>All Products</div>
             <div onClick={()=>navigate('/product')} className='cursor-pointer'>New Product</div>
         </aside>
-        <form className='sm:mx-20 mx-5 flex flex-col justify-center w-[50%]' onSubmit={handleUpdateProduct}>
+        <form className='sm:mx-20 mx-5 flex flex-col justify-center  col-span-3' onSubmit={handleUpdateProduct}>
             <label>Title</label>
             <input required={true} name='name' value={formData?formData.name: ''} className='text-black' onChange={handleChange}></input>
             <label>Price</label>

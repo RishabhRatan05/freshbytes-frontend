@@ -13,8 +13,10 @@ const Category = () => {
     const {data, isLoading} = useGetCategoryProductsQuery(category)
   return (
     <div>
-      <Navbar/>
-        {category}
+      <Navbar/> 
+        <div className='bg-pink text-white text-2xl text-center'>
+          {category}
+          </div>
         {isLoading?<>Loading...</>:
         <>
           {data?.map(product=>{

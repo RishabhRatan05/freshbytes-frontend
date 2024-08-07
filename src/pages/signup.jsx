@@ -34,7 +34,7 @@ const SignUp = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[userInfo])
   return (
-    <form onSubmit={handleSubmit} className='flex  flex-col justify-center items-center items-center h-screen bg-black text-white text-2xl gap-2'>
+    <form onSubmit={handleSubmit} className='flex  flex-col justify-center  bg-gradient-to-tr from-pink to-red-600 items-center h-screen bg-black text-white text-2xl gap-2'>
         <label>Name</label>
         <input name='name' onChange={handleChange} placeholder='enter your name' className='text-black'></input>
         <label>Email</label> 

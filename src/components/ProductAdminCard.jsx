@@ -26,16 +26,16 @@ const ProductAdminCard = ( {_id:id, name, price,category, quantity} ) => {
     }
 
   return (
-    <div className='sm:grid sm:grid-cols-5 gap-2 items-center justify-between'>
-        <img className='col-span-1' src={url? url : 'logo192.png'} alt='dish' width={80} height={80}></img>
-        <div className='col-span-2'>
-            <div>{name}</div>
-            <div>{price}</div>
+    <div className='sm:grid sm:grid-cols-5  items-center justify-between bg-box sm:h-20 text-black border-pink border'>
+        <img className='sm:col-span-1' src={url? url : 'logo192.png'} alt='dish' width={80} height={80}></img>
+        <div className='sm:col-span-2 pl-5'>
+            <div className='text-orange-400'>{name}</div>
+            <div className='text-cyan-600'>₹<span className='text-cyan-500'>{price}</span></div>
         </div>
-        <div className='flex gap-2 col-span-2'>
+        <div className='flex gap-2 sm:col-span-2 text-white justify-between items-center'>
 
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleEdit}  className='bg-pink'>Edit</button>
+        <button onClick={handleDelete}  className='bg-pink'>Delete</button>
         </div>
 
     </div>

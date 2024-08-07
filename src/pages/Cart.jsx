@@ -31,13 +31,13 @@ const Cart = () => {
 
   }
   return (
-    <div>
+    <div className=''>
         <Navbar/>
-        <main className='flex flex-col mx-5'>
+        <main className='flex flex-col mx-2 sm:mx-5 gap-4 mt-2 sm:mt-5'>
           {added?
-          <div  className='flex flex-col justify-center items-center w-[50%]'>
+          <div  className='flex flex-col justify-center items-center'>
+          <button onClick={handleCheckOut} className='items-start'>Back</button>
           <div className='text-4xl'>Shipping Info</div>
-          <button onClick={handleCheckOut}>Back</button>
           <form className='flex flex-col' onSubmit={handlePay}>
             <label>Address</label>
             <input required={true} name='address' onChange={handleChange}></input>
@@ -48,7 +48,7 @@ const Cart = () => {
             <label>Mobile</label>
             <input required={true} name='mobile' onChange={handleChange} type='number'></input>
             
-          <button>Pay {total}</button>
+          <button className='bg-green-500 text-white'>Pay {total}</button>
           </form>
           </div>
           :<>
@@ -56,10 +56,10 @@ const Cart = () => {
               return <ProductCard _id={product.id} key={product._id} name={product.name} price={product.price} quantity={product.qty} />
           })}
           {cart.length>0 ?
-          <>
-          <div>Total amount: {total}</div>
-          <button onClick={handleCheckOut}>Add Shipping </button>
-          </>
+          <div className='sm:flex justify-center items-center gap-4'>
+          <div>Total amount: ₹{total}</div>
+          <button onClick={handleCheckOut} className='bg-orange-400 text-white w-fit px-2'>Add Shipping </button>
+          </div>
           :
           <>
           <div>

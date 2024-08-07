@@ -30,16 +30,17 @@ const Product = () => {
         navigate('/')
     }
   return (
-    <div className='bg-black text-white h-screen'>
+    <div className=' text-black '>
         <Navbar/>
-        <div className=' sm:flex '>
-
-        <aside className='sm:p-5 sm:mr-5 bg-slate-600 sm:flex sm:flex-col gap-2 '>
+        <div className=' sm:grid grid-cols-4 '>
+        <aside className=' flex sm:flex-col gap-2 justify-center items-center min-h-max bg-slate-400  p-1 sm:col-span-1'>
             <div onClick={()=>{setP(true); setNewP(false)}} className='cursor-pointer'>All Products</div>
             <div onClick={()=>{setNewP(true); setP(false)}} className='cursor-pointer'>New Product</div>
         </aside>
+        <div className='px-2 sm:col-span-3'>
+
         {P && 
-        <div className='text-white'>All Products are: 
+        <div className='text-black'>All Products are: 
         {isLoading && <div>Loading...</div>}
             {isSuccess && 
                 data?.map(d=>{
@@ -59,8 +60,11 @@ const Product = () => {
             }
         </div>
         }
+        </div>
+        <div className='px-2 sm:col-span-3 bg-black text-white'>
+
         {newP && 
-        <form className='sm:mx-20 mx-5 flex flex-col justify-center w-[50%]' onSubmit={handleCreateProduct}>
+        <form className=' sm:mx-5 mx-2 flex flex-col justify-center w-full' onSubmit={handleCreateProduct}>
             <label>Title</label>
             <input required={true} name='name' className='text-black' onChange={handleChange}></input>
             <label>Price</label>
@@ -72,6 +76,7 @@ const Product = () => {
             <button className='bg-sky-700 w-fit m-auto px-2 mt-2 rounded'>Create Product</button>
         </form>
         }
+        </div>
         </div>
     </div>
   )
