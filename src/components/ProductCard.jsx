@@ -31,7 +31,7 @@ const ProductCard = ( {_id:id, name, price, quantity} ) => {
   }
 
   return (
-    <div className='sm:grid sm:grid-cols-5  items-center justify-between bg-box sm:h-20 text-black border-pink border'>
+    <div className='sm:grid mt-2 sm:grid-cols-5  items-center justify-between bg-box sm:h-20 text-black border-pink border'>
         <img className='sm:col-span-1' src={url? url : 'logo192.png'} alt='dish' width={80} height={80}></img>
         <div className='sm:col-span-2 pl-5'>
             <div className='text-orange-400'>{name}</div>
