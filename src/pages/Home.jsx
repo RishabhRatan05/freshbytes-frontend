@@ -15,13 +15,13 @@ const Home = () => {
     <div className=' text-white w-full h-full '>
     <Navbar/>
     <div className=' text-2xl sm:text-5xl md:text-6xl py-3 sm:py-5 px-10 bg-pink'>Freshness delivered to your home </div>
-    <div className='sm:grid grid-cols-4'>
+    <div className='sm:grid grid-cols-4 bg-white'>
     <aside className=' flex justify-center items-center min-h-max bg-box col-span-1 p-1'>
         <Categories/>
     </aside>
     <div className='flex  flex-col justify-center items-center col-span-3 pl-5 mt-5 w-fit'>
 
-    {isLoading && <div>Loading...</div>}
+    {isLoading && <div className='text-black'>Loading...</div>} 
             {isSuccess && 
                 data?.map(d=>{
                 return(

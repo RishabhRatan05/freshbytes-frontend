@@ -7,7 +7,7 @@ const Categories = () => {
 
   return (
     <div className='sm:block flex gap-2 flex-wrap'>
-      {isLoading?<div>Loading...</div>
+      {isLoading?<div className='text-black'>Loading...</div>
       : <div className='flex sm:flex-col gap-2 flex-wrap'>
         {data?.map(cat=>{
           
