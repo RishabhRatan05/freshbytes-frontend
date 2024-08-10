@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, decrementItem, incrementItem, removeFromCart } from '../redux/slices/editCart'
 
 const ProductCard = ( {_id:id, name, price, quantity} ) => {
-  const url= ''
+  const url= 'logo192.png'
   const dispatch = useDispatch()
   const cartData = useSelector(state=>state.cartState)
   const cart = cartData.cart

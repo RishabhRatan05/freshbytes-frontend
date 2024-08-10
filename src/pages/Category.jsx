@@ -18,7 +18,7 @@ const Category = () => {
           {category}
           </div>
         {isLoading?<>Loading...</>:
-        <>
+        <div className='mx-5'>
           {data?.map(product=>{
             const qty= cart.map(item=> {
               if(item.id === product._id) return item.qty
@@ -26,7 +26,7 @@ const Category = () => {
               })
             return <ProductCard key={product._id} _id={product._id} name={product.name} price={product.price} quantity={qty} />
           })}
-        </>}
+        </div>}
     </div>
   )
 }

@@ -48,7 +48,7 @@ const Navbar = () => {
   const cartState = useSelector(state=>state.cartState)
   const cart = cartState.cart
   return (
-    <div className='flex justify-between px-2 md:px-5 pt-5 bg-nav text-white'>
+    <div className='flex justify-between px-2 md:px-5 md:pt-5 bg-sky-600 text-white'>
         
         {/* //Desktop */}
         <Link to={'/'} className='text-pink-500 text-2xl sm:text-3xl md:text-4xl'>FreshBytes</Link>

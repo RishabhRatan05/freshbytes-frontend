@@ -14,7 +14,11 @@ const Profile = () => {
           <div>Your role is: <span className='text-orange-400 text-2xl'>{userInfo.role}</span></div>
         </main>
         :
-        <>Login First</>
+        <>
+        <h1>Admin Panel Test</h1>
+        <h1>Email: test@gmail.com</h1>
+        <h1>Password: 1234</h1>
+        </>
           }
           <div className='w-40'>
           </div>

@@ -30,16 +30,16 @@ const Product = () => {
         navigate('/')
     }
   return (
-    <div className=' text-black '>
+    <div className=' text-black h-screen '>
         <Navbar/>
         <div className=' sm:grid grid-cols-4 '>
         <aside className=' flex sm:flex-col gap-2 justify-center items-center min-h-max bg-slate-400  p-1 sm:col-span-1'>
             <div onClick={()=>{setP(true); setNewP(false)}} className='cursor-pointer'>All Products</div>
             <div onClick={()=>{setNewP(true); setP(false)}} className='cursor-pointer'>New Product</div>
         </aside>
-        <div className='px-2 sm:col-span-3'>
 
-        {P && 
+        {P ?
+        <div className='px-2 sm:col-span-3'>
         <div className='text-black'>All Products are: 
         {isLoading && <div>Loading...</div>}
             {isSuccess && 
@@ -59,12 +59,14 @@ const Product = () => {
                 })
             }
         </div>
-        }
+        
         </div>
-        <div className='px-2 sm:col-span-3 bg-black text-white'>
+
+        :
+        <div className=' sm:col-span-3 '>
 
         {newP && 
-        <form className=' sm:mx-5 mx-2 flex flex-col justify-center w-full' onSubmit={handleCreateProduct}>
+        <form className=' bg-slate-500 text-white  items-center flex flex-col justify-center ' onSubmit={handleCreateProduct}>
             <label>Title</label>
             <input required={true} name='name' className='text-black' onChange={handleChange}></input>
             <label>Price</label>
@@ -76,7 +78,9 @@ const Product = () => {
             <button className='bg-sky-700 w-fit m-auto px-2 mt-2 rounded'>Create Product</button>
         </form>
         }
+        
         </div>
+        }
         </div>
     </div>
   )
