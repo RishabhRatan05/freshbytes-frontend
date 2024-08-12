@@ -1,4 +1,4 @@
-import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 const productApi = createApi({
   reducerPath: "productApi",
@@ -25,7 +25,6 @@ const productApi = createApi({
         method: "POST",
         headers: {
           "Access-Control-Allow-Origin": process.env.REACT_APP_SERVER_URL,
-          "Content-Type": "application/json",
         },
         body: product,
       }),
@@ -56,7 +55,12 @@ const productApi = createApi({
   }),
 })
 
-
-export const {useCreateProductMutation, useGetAdminProductsQuery,useDeleteProductMutation, useEditProductMutation, useGetProductsQuery} = productApi
+export const {
+  useCreateProductMutation,
+  useGetAdminProductsQuery,
+  useDeleteProductMutation,
+  useEditProductMutation,
+  useGetProductsQuery,
+} = productApi
 
 export default productApi

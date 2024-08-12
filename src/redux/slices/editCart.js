@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const cartSlice = createSlice({
   name: "cartSlice",
   initialState: {
     cart: [],
-    total:0,
-    shippingInfo:{
-        address:"",
-        pincode:"",
-        city:"",
-        mobile:"",
-    }
+    total: 0,
+    shippingInfo: {
+      address: "",
+      pincode: "",
+      city: "",
+      mobile: "",
+    },
   },
   reducers: {
     addToCart: (state, action) => {
@@ -27,7 +27,7 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const itemId = action.payload.id
-      state.total = state.total - action.payload.price*action.payload.newQty
+      state.total = state.total - action.payload.price * action.payload.newQty
       state.cart = state.cart.filter((item) => item.id !== itemId)
     },
     incrementItem: (state, action) => {
@@ -45,14 +45,20 @@ const cartSlice = createSlice({
       )
       state.cart = state.cart.filter((item) => item.qty !== 0)
     },
-    addShippingInfo:(state,action)=>{
-        state.shippingInfo.address= action.payload.address
-        state.shippingInfo.pincode= action.payload.pincode
-        state.shippingInfo.city= action.payload.city
-        state.shippingInfo.mobile= action.payload.mobile
-    }
+    addShippingInfo: (state, action) => {
+      state.shippingInfo.address = action.payload.address
+      state.shippingInfo.pincode = action.payload.pincode
+      state.shippingInfo.city = action.payload.city
+      state.shippingInfo.mobile = action.payload.mobile
+    },
   },
 })
-export const {addToCart, removeFromCart, incrementItem, decrementItem, addShippingInfo} =  cartSlice.actions
+export const {
+  addToCart,
+  removeFromCart,
+  incrementItem,
+  decrementItem,
+  addShippingInfo,
+} = cartSlice.actions
 
 export default cartSlice.reducer
