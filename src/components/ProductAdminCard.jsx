@@ -32,7 +32,7 @@ const ProductAdminCard = ({
   }
 
   return (
-    <div className="sm:grid sm:grid-cols-5 mb-2 items-center justify-between bg-box sm:h-20 text-black border-pink border">
+    <div className="sm:grid sm:grid-cols-5 mb-2 items-center justify-between card-color-admin sm:h-20 text-black border-pink border">
       <img
         className="sm:col-span-1"
         src={url ? url : "favicon.jpg"}

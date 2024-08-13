@@ -30,9 +30,10 @@ const Cart = () => {
   const handlePay = (e) => {
     e.preventDefault()
     dispatch(addShippingInfo(shipping))
+    alert("Order placed! Thanks for shopping")
   }
   return (
-    <div className="">
+    <div className=" ">
       <Navbar />
       <main className="flex flex-col mx-2 sm:mx-5 gap-4 mt-2 sm:mt-5">
         {added ? (
@@ -76,7 +77,6 @@ const Cart = () => {
           <div className="flex flex-col">
             <div className="flex flex-wrap">
               {cart?.map((product) => {
-                console.log(product)
                 return (
                   <ProductCard
                     _id={product.id}
@@ -109,7 +109,6 @@ const Cart = () => {
             ) : (
               <>
                 <div>Cart is Empty</div>
-                <button onClick={() => navigate("/")}>Back</button>
               </>
             )}
           </div>

@@ -35,7 +35,7 @@ const ProductCard = ({ _id: id, name, price, quantity, url }) => {
   }
 
   return (
-    <div className="flex flex-col justify-between bg-box items-center  text-black border-pink border sm:w-[29%] w-[46%] m-[2%]">
+    <div className="flex flex-col  justify-between card-color items-center  text-black border-pink border sm:w-[29%] w-[46%] m-[2%]">
       <img
         src={url ? url : "favicon.jpg"}
         alt="dish"
@@ -52,25 +52,25 @@ const ProductCard = ({ _id: id, name, price, quantity, url }) => {
       <div className="flex sm:gap-2 gap-0 w-full text-white justify-between items-center">
         <button
           onClick={handleAdd}
-          className="bg-pink  sm:text-lg text-sm px-0 md:px-2"
+          className="bg-pink  sm:text-lg text-sm px-0 lg:px-2"
         >
           Add
         </button>
         {quantity > 0 && (
           <button
             onClick={handleDec}
-            className="bg-pink  sm:text-lg text-sm px-0 md:px-2"
+            className="bg-pink  sm:text-lg text-sm px-0  lg:px-2"
           >
             -
           </button>
         )}
-        <div className="text-white bg-green-500 rounded-full  px-0 md:px-2">
+        <div className="text-white bg-green-500 rounded-full  px-0  lg:px-2">
           {quantity}
         </div>
         {quantity > 0 && (
           <button
             onClick={handleInc}
-            className="bg-pink sm:text-lg text-sm  px-0 md:px-2"
+            className="bg-pink sm:text-lg text-sm  px-0  lg:px-2"
           >
             +
           </button>
@@ -78,7 +78,7 @@ const ProductCard = ({ _id: id, name, price, quantity, url }) => {
         {quantity > 0 && (
           <button
             onClick={handleRemove}
-            className="bg-pink sm:text-lg text-sm  px-0 md:px-2"
+            className="bg-pink sm:text-lg text-sm  px-0  lg:px-2"
           >
             Remove
           </button>

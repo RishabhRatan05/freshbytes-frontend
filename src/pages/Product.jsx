@@ -38,35 +38,39 @@ const Product = () => {
     navigate("/")
   }
   return (
-    <div className=" text-black h-screen ">
+    <div className=" text-black ">
       <Navbar />
       <div className=" sm:grid grid-cols-4 ">
-        <aside className=" flex sm:flex-col gap-2 justify-center items-center min-h-max bg-slate-400  p-1 sm:col-span-1">
-          <div
-            onClick={() => {
-              setP(true)
-              setNewP(false)
-            }}
-            className="cursor-pointer"
-          >
-            All Products
+        <aside className="  flex justify-center min-h-max col-span-1 p-1">
+          <div className="sm:block flex gap-2 flex-wrap sm:fixed ">
+            <div className="flex sm:flex-col gap-2 flex-wrap ">
+              <div
+                onClick={() => {
+                  setP(true)
+                  setNewP(false)
+                }}
+                className="cursor-pointer"
+              >
+                All Products
+              </div>
+              <div
+                onClick={() => {
+                  setNewP(true)
+                  setP(false)
+                }}
+                className="cursor-pointer"
+              >
+                New Product
+              </div>
+              <Link to={"/admin-orders"}>Orders</Link>
+            </div>
           </div>
-          <div
-            onClick={() => {
-              setNewP(true)
-              setP(false)
-            }}
-            className="cursor-pointer"
-          >
-            New Product
-          </div>
-          <Link to={"/admin-orders"}>Orders</Link>
         </aside>
 
         {P ? (
           <div className="px-2 sm:col-span-3">
             <div className="text-black">
-              All Products are:
+              <div className="text-xl">All Products are</div>
               {isLoading && <div>Loading...</div>}
               {isSuccess &&
                 data?.map((d) => {
@@ -102,7 +106,7 @@ const Product = () => {
                 method="POST"
                 action={`${process.env.REACT_APP_SERVER_URL}/api/product`}
                 encType="multipart/form-data"
-                className=" bg-slate-500 text-white  items-center flex flex-col justify-center "
+                className=" items-center flex flex-col justify-center "
                 onSubmit={handleCreateProduct}
               >
                 <label>Title</label>
@@ -140,7 +144,7 @@ const Product = () => {
                   name="imageFile"
                   onChange={(e) => setImage(e.target.files[0])}
                 ></input>
-                <button className="bg-sky-700 w-fit m-auto px-2 mt-2 rounded">
+                <button className="bg-sky-700 text-white w-fit m-auto px-2 mt-2 rounded">
                   Create Product
                 </button>
               </form>
